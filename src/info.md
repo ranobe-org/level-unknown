@@ -1,7 +1,5 @@
 # Details
 
-<img width="200" src="https://external-preview.redd.it/RyRIbXr44ywU3hYVVZb5uCFUpoB9JcbxqcfXgQshNdg.png?s=981018e7af3f7d776ebdb7a9209b48196ee0fdb0" alt="cover">
-
 ## What is your level?
 
 - Alternative Names: Level Unknown
