@@ -1,5 +1,7 @@
 # Details
 
+![cover](https://github.com/ranobe-org/level-unknown/raw/main/cover.jpg)
+
 ## What is your level?
 
 - Alternative Names: Level Unknown
