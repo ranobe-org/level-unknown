@@ -1,7 +1,12 @@
 <div align="center">
     <img width="400" src="https://github.com/ranobe-org/level-unknown/raw/main/cover.jpg" alt="cover"/>
     <samp><h1>What is your level?</h1></samp>
+    <samp><a href="https://ranobe-org.github.io/level-unknown/">Start Reading</a></samp>
 </div>
+
+
+
+------------------------------------
 
 
 - Alternative Names: Level Unknown
