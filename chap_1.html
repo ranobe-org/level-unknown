@@ -1,0 +1,251 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Chapter 1 - What is your level?</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="info.html"><strong aria-hidden="true">1.</strong> Info</a></li><li class="chapter-item expanded "><a href="chap_1.html" class="active"><strong aria-hidden="true">2.</strong> Chapter 1</a></li><li class="chapter-item expanded "><a href="chap_2.html"><strong aria-hidden="true">3.</strong> Chapter 2</a></li><li class="chapter-item expanded "><a href="chap_3.html"><strong aria-hidden="true">4.</strong> Chapter 3</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">What is your level?</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="1"><a class="header" href="#1">1</a></h1>
+<hr />
+<h2 id="god-lived-here"><a class="header" href="#god-lived-here">God lived here</a></h2>
+<p>I'm Jumal, a law student, living in the city of Cardona, just an ordinary person living in the most ordinary
+city on the planet, nothing ever happens here, everything here is so normal that even if someone in the
+neighbourhood decides to visit the doctor it becomes news. People tend to live normal lives
+with a day job and small families of two-three and a small pet mostly a cat. I lived alone leaving my house for
+college hoping that it helps me focus more on my studies considering how tough is to get a law degree in the country.</p>
+<p>I live on the north side of the city which is less crowded, I was able to rent a place with two rooms enough for
+my living and study, also it was the nearest place to my college which I try to attend more often than I require
+to do so. The life of a student is hard in the cities considering the amount of pressure the family has and the
+amount of daily work a person has to do. It's difficult to digest that a 19-year-old has to study at least 12 hours
+to get a good living and education.</p>
+<p>My life at my home was amazing, mom used to make meals, dad used to play video games with me, and now it's all changed.
+I don't even have time to visit them that often. My schedule for the day is very tight and there's very little
+time I can put into doing something that I never planned.</p>
+<p>May 31, Today is the day to get admitted into the next semester, there's this process of submitting fresh
+documents and filling up forms at the college management office, just to get admitted to the next semester. Sounds
+so silly that I am a student of the college studying for an entire year, but I still need to submit documents proving
+that I belong to this college and my identity is what I say. Well, the process is not so long but the
+line today is. There are two people ahead of me, I know one of them, Asayi, head of Class 10, and son of the
+Mayor, is very arrogant but probably the most intelligent boy in the city.</p>
+<p>The line moved, and it was Asayi's turn to submit the documents, he holds a huge file with multiple papers, I think most
+of them will be certificates from contests he won at. He submitted the docs, and I was getting ready for my turn when
+the clerk spoke saying that the docs were wrong, I paid attention and started checking my bunch of papers, I never
+made any mistakes, and maybe the format changed this year. The clerk clarified that the identity document had the wrong
+address and the one that shows income had the wrong details too, he didn't want to accept the form and ordered
+to correct these details. Asayi got mad he didn't want others to know that the income doc he presented is
+faked, so they can get around taxation. Rich people often try to hide the fact that they are rich by making
+fake documents. The clerk wouldn't accept such a document, and Asayi started arguing with no outcome.</p>
+<p>Just then Asayi took out his wallet from the back pocket of his pants, a leather black wallet, filled with green notes,
+my first thought this might be the semester fees, but it wasn't he took out a bundle of it and I knew he wasn't
+paying his fees but was bribing the management to accept his fake documents. I believe the management to
+not allow such behaviour I'm sure now they will punish Asayi for such a stunt, but to a shock they
+accepted it, not only that, but they also accepted the form and allowed this person to next semester, I hate
+people who accept bribe that too in an institute who is teaching that bribery is a crime. I will report this to the
+government, not to the media. But it will never get out I'm sure of it. The world is so corrupt everyone is so
+cruel, no one wants to follow the rules, and no one is disciplined. I am going to work day and night to sort this out
+I am going to get a law degree and punish all these people no matter what their status is, they all will
+be punished by me.</p>
+<p>Snap out of it Jumal, you are not very good at law either, that's true said my inner voice, I was supposed to finish
+my education this year, but I failed twice already and still has another year to complete, I am so determined to be
+a lawyer but can't even get good marks in the most basic subjects. Why is it so hard to get marks? I'm good at
+understanding criminal cases but not that good at explaining them. I try to solve cases that are pending with some
+clues here and there I have derived solutions but what use if I can't even get good marks to pass and get a real judge
+to judge them?</p>
+<p>Another day is gone, and nothing is learned, only the frustration of people and the way the world is revolving around the sun
+everyone wants to take shortcuts. Asayi bribing the management, the management accepting the fees, altering the
+records, the government accepting illegal documents, the mayor himself building fake trails of success, and so on. The
+world needs a cleansing, it needs a rule set, it needs someone who can tell exactly which person is doing good and
+who is committing bad things. There should be a number system if the person does a good deed their level increases
+just like my high score on the Pacman game in the Bard Arcade if a person does bad he loses his life. I'm a gamer too
+but only for Pacman, this game drives me nuts when someone beats my score, so I spent way too much time on it
+during nighttime. Currently, I have the highest score, and it is displayed on the board of the Arcade, Jumal #1 with
+a score of 4500000, unbeaten for, 2 years.</p>
+<p>One day, I'm going to finish my law degree and create cases to rule out all the criminals I have collected over the
+years. I will make them guilty in court and the eyes of the law and make the world a good living place.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="info.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="chap_2.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="info.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="chap_2.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </body>
+</html>

@@ -1,0 +1,364 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>What is your level?</title>
+        <meta name="robots" content="noindex" />
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="info.html"><strong aria-hidden="true">1.</strong> Info</a></li><li class="chapter-item expanded "><a href="chap_1.html"><strong aria-hidden="true">2.</strong> Chapter 1</a></li><li class="chapter-item expanded "><a href="chap_2.html"><strong aria-hidden="true">3.</strong> Chapter 2</a></li><li class="chapter-item expanded "><a href="chap_3.html"><strong aria-hidden="true">4.</strong> Chapter 3</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">What is your level?</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="details"><a class="header" href="#details">Details</a></h1>
+<p><img src="https://github.com/ranobe-org/level-unknown/raw/main/cover.jpg" alt="cover" /></p>
+<h2 id="what-is-your-level"><a class="header" href="#what-is-your-level">What is your level?</a></h2>
+<ul>
+<li>Alternative Names: Level Unknown</li>
+<li>Author: Atul</li>
+<li>Genre: Fiction, Fantasy, Mystery, Thriller, Future, Horror</li>
+<li>Year: 2023</li>
+<li>Status: Ongoing</li>
+</ul>
+<h2 id="summary"><a class="header" href="#summary">Summary:</a></h2>
+<p>Jumal, a school boy realizes he is now able to see levels of people right above their heads, its unreal but at the same time feels 
+much real, with little to no understanding of how he possesses this great power he explores the world in search of knowledge and strength.</p>
+<p>The only flaw of his great powers is that he can not see his own level which is going to drive him mad until he realizes that someone might
+have the same powers, but this person whoever this is not an ordinary person, their intentions are cruel and disastrous filled with 
+anger and revenge, lust of power and Jumal a law student knows exactly how to get this person to his knees and surrender in the hands
+of law.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="1"><a class="header" href="#1">1</a></h1>
+<hr />
+<h2 id="god-lived-here"><a class="header" href="#god-lived-here">God lived here</a></h2>
+<p>I'm Jumal, a law student, living in the city of Cardona, just an ordinary person living in the most ordinary
+city on the planet, nothing ever happens here, everything here is so normal that even if someone in the
+neighbourhood decides to visit the doctor it becomes news. People tend to live normal lives
+with a day job and small families of two-three and a small pet mostly a cat. I lived alone leaving my house for
+college hoping that it helps me focus more on my studies considering how tough is to get a law degree in the country.</p>
+<p>I live on the north side of the city which is less crowded, I was able to rent a place with two rooms enough for
+my living and study, also it was the nearest place to my college which I try to attend more often than I require
+to do so. The life of a student is hard in the cities considering the amount of pressure the family has and the
+amount of daily work a person has to do. It's difficult to digest that a 19-year-old has to study at least 12 hours
+to get a good living and education.</p>
+<p>My life at my home was amazing, mom used to make meals, dad used to play video games with me, and now it's all changed.
+I don't even have time to visit them that often. My schedule for the day is very tight and there's very little
+time I can put into doing something that I never planned.</p>
+<p>May 31, Today is the day to get admitted into the next semester, there's this process of submitting fresh
+documents and filling up forms at the college management office, just to get admitted to the next semester. Sounds
+so silly that I am a student of the college studying for an entire year, but I still need to submit documents proving
+that I belong to this college and my identity is what I say. Well, the process is not so long but the
+line today is. There are two people ahead of me, I know one of them, Asayi, head of Class 10, and son of the
+Mayor, is very arrogant but probably the most intelligent boy in the city.</p>
+<p>The line moved, and it was Asayi's turn to submit the documents, he holds a huge file with multiple papers, I think most
+of them will be certificates from contests he won at. He submitted the docs, and I was getting ready for my turn when
+the clerk spoke saying that the docs were wrong, I paid attention and started checking my bunch of papers, I never
+made any mistakes, and maybe the format changed this year. The clerk clarified that the identity document had the wrong
+address and the one that shows income had the wrong details too, he didn't want to accept the form and ordered
+to correct these details. Asayi got mad he didn't want others to know that the income doc he presented is
+faked, so they can get around taxation. Rich people often try to hide the fact that they are rich by making
+fake documents. The clerk wouldn't accept such a document, and Asayi started arguing with no outcome.</p>
+<p>Just then Asayi took out his wallet from the back pocket of his pants, a leather black wallet, filled with green notes,
+my first thought this might be the semester fees, but it wasn't he took out a bundle of it and I knew he wasn't
+paying his fees but was bribing the management to accept his fake documents. I believe the management to
+not allow such behaviour I'm sure now they will punish Asayi for such a stunt, but to a shock they
+accepted it, not only that, but they also accepted the form and allowed this person to next semester, I hate
+people who accept bribe that too in an institute who is teaching that bribery is a crime. I will report this to the
+government, not to the media. But it will never get out I'm sure of it. The world is so corrupt everyone is so
+cruel, no one wants to follow the rules, and no one is disciplined. I am going to work day and night to sort this out
+I am going to get a law degree and punish all these people no matter what their status is, they all will
+be punished by me.</p>
+<p>Snap out of it Jumal, you are not very good at law either, that's true said my inner voice, I was supposed to finish
+my education this year, but I failed twice already and still has another year to complete, I am so determined to be
+a lawyer but can't even get good marks in the most basic subjects. Why is it so hard to get marks? I'm good at
+understanding criminal cases but not that good at explaining them. I try to solve cases that are pending with some
+clues here and there I have derived solutions but what use if I can't even get good marks to pass and get a real judge
+to judge them?</p>
+<p>Another day is gone, and nothing is learned, only the frustration of people and the way the world is revolving around the sun
+everyone wants to take shortcuts. Asayi bribing the management, the management accepting the fees, altering the
+records, the government accepting illegal documents, the mayor himself building fake trails of success, and so on. The
+world needs a cleansing, it needs a rule set, it needs someone who can tell exactly which person is doing good and
+who is committing bad things. There should be a number system if the person does a good deed their level increases
+just like my high score on the Pacman game in the Bard Arcade if a person does bad he loses his life. I'm a gamer too
+but only for Pacman, this game drives me nuts when someone beats my score, so I spent way too much time on it
+during nighttime. Currently, I have the highest score, and it is displayed on the board of the Arcade, Jumal #1 with
+a score of 4500000, unbeaten for, 2 years.</p>
+<p>One day, I'm going to finish my law degree and create cases to rule out all the criminals I have collected over the
+years. I will make them guilty in court and the eyes of the law and make the world a good living place.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="2"><a class="header" href="#2">2</a></h1>
+<hr />
+<h2 id="devil-isnt-that-far"><a class="header" href="#devil-isnt-that-far">Devil isn't that far</a></h2>
+<p>Boranth Corp. is the biggest and richest of all industries and firms on the planet but very few actually know about this
+financially big organization whose whole responsibility is to keep society functioning by providing funds to
+middle corporations and government agencies. I am the director member of the board and my only responsibility is
+to handle people who work below me, I worked so hard for this my entire life, I studied hard and started working
+at a very early age. I am Azreal, businessman. I am always in search of power full of my abilities. I handle
+most of the infrastructure and banking facilities, every bank manager is my employee.</p>
+<p>Today is just like any other day as I woke up at 4:00 am, and made myself a hot coffee. The sun hasn't risen yet, but some
+buildings have lights turned on. My building is the only building in the vicinity with 50 floors that stood so high
+that in rainy seasons I can see the clouds from my windows. All these small buildings around me are like peasants
+to me, they stink and stay rotten, if even a single one could have dared and risked to become like me,
+they could have escaped from the reality, they don't have the guts, they don't want to shed some blood.</p>
+<p>I shed not a single drop but rivers, and lakes of blood on my way to the top, I don't care about meaningless lives
+becoming obstacles in my way even if it is family, Yes, especially if it is family, cause when that happens the
+world respects you more, the more they respect you the more they fear for their life. I can teach all these peasants
+how to live under me, I shall conquer this business world, I do to some extent, but I want more.</p>
+<p>My assistant messaged me that the Aus Deal is going to be arranged for the day, I got ready as usual driving my way
+to the office, I was ready for anything thrown by the Aus manager Mr Saki, a white-bearded strong man, anyone
+talking to him will lower his own voice to give this man the respect he thinks he deserves, but I know exactly
+how to handle such kind of situations and I don't lower my voice not even if it means a loss for the company.</p>
+<p>Mr Saki agreed to provide us with the infrastructure so that the next company building could be built. It is supposed
+to build in the centre of Cardona city. But he had a condition, the condition was that the amount paid for the deal
+should be double what is required. Half is the official amount for the deal and the other half is the commission.
+Saki who had nothing to do with the deal and was just a middleman, wanted so much percentage of the commission is
+bad for the deal and my company. I knew just then what I have to do so that Mr Saki gets us the deal and we don't have to
+lose anything. I know the right medicine for this job. I have to take him down today!</p>
+<p>The deal was done, I paid Mr Saki 5000M Dollars, of which half was paid by wire while the other half was paid
+cash, it was clear as day that Saki was robbing us, but we have to get the deal done, and he is the only person who
+can get this done. Mr Saki and I shared a bottle of rich whiskey, he laughed like a small child, and he told old stories
+of how we planned to become a businessman. But he doesn't have any idea of what is about to come, what is about to happen
+to the child-like laugh of his? No one is going to hear from him the next day. You will regret this meeting Saki, you
+are going to pay for the loss with your useless life. So Saki left with a happy face, and  I can't wait to see his red
+one in the newspapers.</p>
+<p>I don't commit murder, I just order them, my assassin X is ordered to kill Mr Saki by a road accident so no one
+suspects us, it will be just like a tragedy. Oh, poor Saki, you will pay for the loss you cause to the company. X will
+not only put you down but will fetch all the money back, so you can lose only one thing, your life.</p>
+<p>My secretary, Ash, a blonde with blue eyes, walked in, she was explaining to me, how Mr Saki dies in an accident, how the money
+bag disappeared. and how this all can be bad for the deal. I was very happy with the results, and unknowingly I burst
+saying he got what he deserves and of course, it was planned. The secretary was shocked her eyes wide open,
+her face slowly turning pale, she was silent for a minute or more and burst out of the room apologizing for bringing
+the news.</p>
+<p>This was a mistake I can not let something like this small distract me from making a mistake in public, no one
+should know about this. Even though I didn't say much, it did reveal my intentions and I can be found guilty.
+Guilty of a murder which I technically did not commit, or did I? who cares. I could call her, tell her what I meant
+or could let her know that I did but for a reason. That will be foolish, there's no going back. What if while she
+travels home today by the train and accidentally falls on the tracks just when the train arrives, and her skull gets
+crushed by the wheels of the train and the blood splatters around the station and everyone screams out loud, yeah
+that will be a good scene!</p>
+<p>I am back home, I usually watch some news before going to bed, and voilà, a woman falls on the track of Nasro Station
+this evening at 7 pm, was it a suicide? was it an accident? no one knows. Isn't that exactly what I predicted this afternoon,
+yes I did and in such details. Ha ha, the life of a human being is so fragile even a small decision can make you lose
+your pathetic life. Life is just a meaningless joke which can end just by the smallest decision possible. Only<br />
+god knows how long you live, or only I know how long you can live. I am the angel of death, Azreal! bow before me!</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="3"><a class="header" href="#3">3</a></h1>
+<hr />
+<h2 id="tragic-accident-or-good-thing"><a class="header" href="#tragic-accident-or-good-thing">Tragic Accident or Good thing?</a></h2>
+<p>I woke up early today even though it's Sunday, I have to go to the Arcade, some kid broke by a high score, he probably
+slept in the arcade as well. I have to put up another big score, can't let anyone else take my place. I can't wait,
+I will run there and get it sorted.</p>
+<p>Today is different in some ways, the sky is clear and the sun is shining with full potential and I hate the heat, I am very
+prone to strokes but haven't had one in a while. Sundays are movies day, I stay in my room the whole day watching movies,
+tv series, and anime, and reading some novels. I am not that lazy but there is nothing else to do on Sundays, it is the
+only day on my calendar which is empty with room for all fun things, and today it's empty for Pacman.</p>
+<p>There is unusual walking traffic on the sideways, it's time to take a shortcut, there is only one shortcut right
+under the bridge through the ways of the underground. I hardly travel underground, but I know it all I spent so much time
+in the city that I know which road leads to what not only that, but I also know where are houses of some celebrities
+and notorious business person. They have big houses, huge properties and fancy cars. I would like to get a car someday,
+It would have been great if Pacman players would get paid. Yeah, that will be something.</p>
+<p>The underground was just ahead, It was all sunny throughout the walk, I walked around the road and started climbing down
+the set of stairs, the stairs are usually kept clean, and they were quite clean today. The stairs were wet I read the
+sign and slowed down, but I lost control and couldn't stop, I won't stop, too late now going to fall and brake a bone for
+sure. Someone save me!</p>
+<p><em>&quot;Yes he fell right on his head!&quot;</em></p>
+<p>Jumal how are you feeling? I hear this voice in my head, it is throbbing with pain, my head hurts like I just fall
+down the stairs. Yes, I fell down that stairway, but it wasn't that deadly, I can't open my eyes. I have to try
+harder. Where am I? Is this a hospital? I am in a hospital, this is the nurse, I have been unconscious for 15 hours.
+The hospital informed my family but no one arrived, that's strange how can no one come to visit me?</p>
+<p>I can't believe I fell from the stairs and ended up here, how am I going to pay for the bills, this is so bad, the nurse
+is still here looking through the report, and it's multiple pages, what are these people cooking? I can tell them
+I'm a law student they might not charge me extra. Wait a minute! Am I hallucinating? What is it that I'm seeing on the
+nurse's head, is that a ... that can't be right.</p>
+<p>I asked the nurse if I'm on any medicines, any stronger ones, and she replied saying I'm on morphine. Morphine is for pain
+right, why would I be hallucinating? The doctor came in, and I see it, it is a number, a numerical figure right on
+top of their heads like scores in a video game, and its red, and they are not solid but floating like animals. Am
+Have I gone mad? This is not something ordinary, it's weird. The doctor asked me how I was doing and told me that I can
+leave in the evening or tomorrow if I want to stay longer.</p>
+<p>I don't care anymore if I stay here or go out, the only thing that is bothering me is this number on people's heads, it
+was on the nurse's head and the doctor's and the other nurse's which came in the morning. Wait a minute, I need to see
+a mirror, there is a bathroom, there should be a mirror. I walked inside the bathroom and there was a small mirror
+enough to see my face. My head was bandaged tightly and a spot of blood where I probably hit myself in the head. I
+raised my eyes to look just above my head, and I saw it.</p>
+<p>I saw that I have nothing like what I saw in other people. I can't see it, where is my number, this is
+weirder than seeing numbers on top of people's heads. Its cause of the bandage, maybe my number is stuck inside.
+That's stupid, maybe these medicines did affect me, and now I am probably no more in the effect. I should go out and visit
+other rooms to see if I still see it.</p>
+<p>No matter whether I can see it now or not, it is fascinating that something like this happens, the number was like a score
+no more like a level or could be years for how long they live. That's not possible if that was the year the doctor would be
+living for 98 more years. And the nurse for 65 more years. Maybe it can be the total years, that's possible. But the average
+life span is just around 60, these people must be lucky then. Let's not waste time here, just go home watch another movie,
+and go to bed. I will beat my score next Sunday. Hopefully, the bill is not as big as my pocket.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+        <script>
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+
+    </body>
+</html>
