@@ -1,7 +1,7 @@
 # 3
 -----------------
 
-## Tragic Accident or Good thing?
+## Accident or a Blessing?
 
 I woke up early today even though it's Sunday, I have to go to the Arcade, some kid broke by a high score, he probably
 slept in the arcade as well. I have to put up another big score, can't let anyone else take my place. I can't wait,
@@ -48,7 +48,7 @@ enough to see my face. My head was bandaged tightly and a spot of blood where I 
 raised my eyes to look just above my head, and I saw it.
 
 I saw that I have nothing like what I saw in other people. I can't see it, where is my number, this is
-weirder than seeing numbers on top of people's heads. Its cause of the bandage, maybe my number is stuck inside.
+weirder than seeing numbers on top of people's heads. It's the cause of the bandage, maybe my number is stuck inside.
 That's stupid, maybe these medicines did affect me, and now I am probably no more in the effect. I should go out and visit
 other rooms to see if I still see it.
 
@@ -57,3 +57,38 @@ no more like a level or could be years for how long they live. That's not possib
 living for 98 more years. And the nurse for 65 more years. Maybe it can be the total years, that's possible. But the average
 life span is just around 60, these people must be lucky then. Let's not waste time here, just go home watch another movie,
 and go to bed. I will beat my score next Sunday. Hopefully, the bill is not as big as my pocket.
+
+I left the hospital but the receptionist, the doctors, the patients, and the nurse all had that number right on their heads,
+I could read it so clearly that I don't think it is any hallucination anyone could ever experience. Looks like I got
+extra power-ups when I fell from that stairs. I am so confused about what is happening to me. The odd thing is that I can't
+see my level. Yes, I'm going to call it a level because I don't think it is the year people are going to live for. The reason
+is I just saw one person with the number 135, which can only mean it is some kind of level, yes also I think he was the head
+of some charity organization.
+
+I need to figure out more about this, I am able to see levels on all of these people. There, is an old man sitting in the park feeding
+the pigeons, he is on level 150, and the old lady, probably his wife with level 148. As the old lady started throwing some  
+bread crumbs, something happened, something changed, yes, the level of the old lady just turned to 149, does this
+mean feeding pigeons increase your level? How often does this increase? I'm sure the couple feed the pigeons every day, no way
+the level changes every day. There was some noise at the end of the park, right near the sushi hotel, looks like the owner
+is upset with the waiter for something, looks like the waiter drop food on a customer, and the owner is cursing and hitting this
+poor waiter. Wait a minute! when I first saw the owner had level 65, now suddenly it is level 65, could this be... no way...
+it is that simple, if you do good deeds you level up and if do something bad you level down!
+
+But what does this level represents, it's just a badge, what if someone is of a high level? Well, it is getting late I should hurry
+and rest, hope I don't lose this power when I wake up. I am home! long walk but what I don't get is what I'm going to do with
+this weird power to see other people's level and not mine. Why not mine? Maybe, the power givers don't want me to improve my level.
+But I can increase my level by just doing something good, any good deed with surely reward me +1 level. It could be possible
+that I'm already at a very high level, I never did anything bad all I thought was of good things. I can't sleep like this, let's
+watch some T.V. before I sleep.
+
+T.V. is no exception, I can still see digital levels, yup everyone has it. I have a reality show, 'The Life', on right now. All
+the characters have levels around 50-140, the average is quite bad considering the old couple had a good level. Even the waiter
+was good enough. There is one person in this show, who has a good level of 170, this might be the highest I've seen yet. He
+is respected by all the other members, but he doesn't come up on the video often, he is very shy. This show will probably get
+rid of him since he won't provide much content. No matter what he does, everyone still loves him and respects him, talks nicely,
+and listens to him. He is more like a leader to them, but he is hardly a leadership figure.
+
+Wait, I stood quickly ran to my computer, turned it on, opened the internet browser, and searched for Mr Borth, he is an actor,
+and I saw it. Then I searched for Mrs Uni, a political person, and there it was. I again searched for Juyo Anuyai a writer
+and social figure, and there it was. All of them had a level greater than Level 300. This only means one thing, this is incredible,
+it means 'The higher the level you are the more you will be respected in society!'.
